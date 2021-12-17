@@ -9,6 +9,7 @@ import Foundation
 
 class Game {
     static var shared = Game()
+    var gameMode = GameMode.sequential
     var gameSession: GameSession?
     private var gameResults = [GameResult]()
 
