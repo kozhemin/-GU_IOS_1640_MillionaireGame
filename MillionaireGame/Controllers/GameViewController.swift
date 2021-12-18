@@ -9,7 +9,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     var gameDelegate: GameSessionProtocol?
-    
+
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerTableView: UITableView!
 
@@ -17,9 +17,9 @@ class GameViewController: UIViewController {
     private let questionDataProvider = QuestionDataProvider()
     private var currentQuestion: Question?
 
-    lazy private var createQuestionStrategy: DisplayQuestionStrategy = {
+    private lazy var createQuestionStrategy: DisplayQuestionStrategy = {
         let allQuestion = questionDataProvider.getAllQuestion()
-        
+
         switch Game.shared.gameMode {
         case .sequential:
             return SequentialDisplayQuestionStrategy(q: allQuestion)
@@ -32,17 +32,17 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         answerTableView.dataSource = self
         answerTableView.delegate = self
-        
+
         gameDelegate?.cnAllQuestion = questionDataProvider.getCount()
         displayNewQuestion()
     }
 
     // MARK: Отображение нового вопроса в зависимости от текущей стратегии
-    
+
     private func displayNewQuestion() {
         guard let currentQuestion = questionDataProvider.getQuestion(strategy: createQuestionStrategy)
-        else { return endOfGame()}
-        
+        else { return endOfGame() }
+
         self.currentQuestion = currentQuestion
         questionLabel.text = currentQuestion.title
         answerTableView.reloadData()

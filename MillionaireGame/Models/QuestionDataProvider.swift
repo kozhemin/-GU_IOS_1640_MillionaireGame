@@ -6,7 +6,6 @@
 //
 
 final class QuestionDataProvider {
-    
     private var questionList = [
         Question(title: "В каком из этих фильмов не снимался Александр Абдулов?", answers: [
             Answer(title: "Карнавал", score: 0),
@@ -33,15 +32,15 @@ final class QuestionDataProvider {
             Answer(title: "Идальго", score: 1_000_000),
         ]),
     ]
-    
+
     func getAllQuestion() -> [Question] {
         return questionList
     }
-    
-    func getCount() ->Int {
+
+    func getCount() -> Int {
         return getAllQuestion().count
     }
-    
+
     func getQuestion(strategy: DisplayQuestionStrategy) -> Question? {
         return strategy.displayQuestion()
     }
