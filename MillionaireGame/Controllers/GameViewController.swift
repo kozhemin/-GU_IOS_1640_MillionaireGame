@@ -10,6 +10,7 @@ import UIKit
 class GameViewController: UIViewController {
     var gameDelegate: GameSessionProtocol?
 
+    @IBOutlet var gameHintLabel: UILabel!
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerTableView: UITableView!
 
@@ -34,6 +35,10 @@ class GameViewController: UIViewController {
         answerTableView.delegate = self
 
         gameDelegate?.cnAllQuestion = questionDataProvider.getCount()
+        Game.shared.gameSession?.cnRightAnswer.addObserver(self, options: [.new, .initial])
+            { [weak self] rightAnswer, _ in
+                self?.gameHintLabel.text = "Вопрос № \(rightAnswer + 1);  \(Game.shared.getPct())% правльных ответов"
+            }
         displayNewQuestion()
     }
 

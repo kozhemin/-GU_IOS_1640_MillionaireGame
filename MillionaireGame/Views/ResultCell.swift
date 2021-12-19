@@ -27,6 +27,7 @@ class ResultCell: UITableViewCell {
         cnPctLabel.text = data.rightPct.description
         isWinnerLabel.text = data.isWinner ? "Да" : "Нет"
 
+        isWinnerLabel.textColor = .black
         if data.isWinner {
             isWinnerLabel.textColor = .green
         }

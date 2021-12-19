@@ -14,11 +14,12 @@ protocol GameSessionProtocol {
 
 class GameSession: GameSessionProtocol {
     var cnAllQuestion: Int
-    private var cnRightAnswer = 0
+    let cnRightAnswer = Observable<Int>(0)
+
     private var prizeFund = 0
 
     lazy var isWinner: Bool = {
-        cnAllQuestion > 0 && cnAllQuestion == cnRightAnswer
+        cnAllQuestion > 0 && cnAllQuestion == cnRightAnswer.value
     }()
 
     init(question: Int) {
@@ -30,12 +31,12 @@ class GameSession: GameSessionProtocol {
     }
 
     func appendRightAnswer(score: Int) {
-        cnRightAnswer += 1
+        cnRightAnswer.value += 1
         prizeFund += score
     }
 
     func getCnRightAnswer() -> Int {
-        cnRightAnswer
+        cnRightAnswer.value
     }
 
     func getPrizeFund() -> Int {

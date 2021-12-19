@@ -81,7 +81,7 @@
                                     </navigationItem>
                                 </items>
                                 <navigationBarAppearance key="standardAppearance">
-                                    <color key="backgroundColor" name="200852"/>
+                                    <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 </navigationBarAppearance>
                             </navigationBar>
                         </subviews>
@@ -100,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.57971014492756" y="105.80357142857143"/>
+            <point key="canvasLocation" x="-300" y="116"/>
         </scene>
         <!--Game Config View Controller-->
         <scene sceneID="Z4y-Gl-iKy">
@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2na-WO-iw9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1069.5652173913045" y="-923.4375"/>
+            <point key="canvasLocation" x="1070" y="-878"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="APU-Yp-tXV">
@@ -165,7 +165,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z9h-Tr-EUD">
-                                <rect key="frame" x="8" y="244" width="398" height="618"/>
+                                <rect key="frame" x="8" y="244" width="398" height="578"/>
                                 <color key="backgroundColor" name="200852"/>
                                 <color key="separatorColor" systemColor="systemOrangeColor"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -194,14 +194,23 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос № 1;  0.0% правльных ответов" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dA-fY-R7X">
+                                <rect key="frame" x="20" y="841" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nNP-bd-L5L"/>
                         <color key="backgroundColor" name="200852"/>
                         <constraints>
                             <constraint firstItem="nNP-bd-L5L" firstAttribute="trailing" secondItem="K4u-1m-xZg" secondAttribute="trailing" constant="8" id="5Vp-X9-E19"/>
-                            <constraint firstItem="nNP-bd-L5L" firstAttribute="bottom" secondItem="z9h-Tr-EUD" secondAttribute="bottom" id="A7U-Ar-JaK"/>
+                            <constraint firstItem="5dA-fY-R7X" firstAttribute="leading" secondItem="nNP-bd-L5L" secondAttribute="leading" constant="20" id="6fD-iI-n8E"/>
+                            <constraint firstItem="nNP-bd-L5L" firstAttribute="trailing" secondItem="5dA-fY-R7X" secondAttribute="trailing" constant="20" id="9Rz-Zk-PEB"/>
+                            <constraint firstItem="nNP-bd-L5L" firstAttribute="bottom" secondItem="z9h-Tr-EUD" secondAttribute="bottom" constant="40" id="A7U-Ar-JaK"/>
                             <constraint firstItem="z9h-Tr-EUD" firstAttribute="top" secondItem="nNP-bd-L5L" secondAttribute="top" constant="200" id="CY5-Cz-h2B"/>
                             <constraint firstItem="nNP-bd-L5L" firstAttribute="trailing" secondItem="z9h-Tr-EUD" secondAttribute="trailing" constant="8" id="jKZ-Kb-4Z3"/>
+                            <constraint firstItem="5dA-fY-R7X" firstAttribute="bottom" secondItem="nNP-bd-L5L" secondAttribute="bottom" id="jPL-rx-j7G"/>
                             <constraint firstItem="K4u-1m-xZg" firstAttribute="top" secondItem="nNP-bd-L5L" secondAttribute="top" constant="20" id="mRn-FQ-fFy"/>
                             <constraint firstItem="K4u-1m-xZg" firstAttribute="leading" secondItem="nNP-bd-L5L" secondAttribute="leading" constant="8" id="oEA-I3-wPH"/>
                             <constraint firstItem="z9h-Tr-EUD" firstAttribute="leading" secondItem="nNP-bd-L5L" secondAttribute="leading" constant="8" id="zlN-YZ-oux"/>
@@ -210,6 +219,7 @@
                     <navigationItem key="navigationItem" id="W1d-rR-jhf"/>
                     <connections>
                         <outlet property="answerTableView" destination="z9h-Tr-EUD" id="mGR-Zk-kq0"/>
+                        <outlet property="gameHintLabel" destination="5dA-fY-R7X" id="r3z-fk-iDf"/>
                         <outlet property="questionLabel" destination="K4u-1m-xZg" id="mtX-FV-UNy"/>
                     </connections>
                 </viewController>
@@ -271,6 +281,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

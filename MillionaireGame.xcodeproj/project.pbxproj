@@ -20,6 +20,8 @@
 		9742DF06276D41970076DCD4 /* DisplayQuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742DF05276D41970076DCD4 /* DisplayQuestionStrategy.swift */; };
 		9742DF08276D541F0076DCD4 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742DF07276D541F0076DCD4 /* GameMode.swift */; };
 		9742DF0A276E91110076DCD4 /* GameConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742DF09276E91110076DCD4 /* GameConfigViewController.swift */; };
+		9742DF0C276F51CB0076DCD4 /* ObservableOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742DF0B276F51CB0076DCD4 /* ObservableOptions.swift */; };
+		9742DF0E276F51FF0076DCD4 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9742DF0D276F51FF0076DCD4 /* Observable.swift */; };
 		97FE7370276A3BA300EB10C5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FE736F276A3BA300EB10C5 /* Game.swift */; };
 		97FE7372276A3CCE00EB10C5 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FE7371276A3CCE00EB10C5 /* GameSession.swift */; };
 		97FE7375276A877500EB10C5 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FE7373276A877500EB10C5 /* ResultCell.swift */; };
@@ -44,6 +46,8 @@
 		9742DF05276D41970076DCD4 /* DisplayQuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayQuestionStrategy.swift; sourceTree = "<group>"; };
 		9742DF07276D541F0076DCD4 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		9742DF09276E91110076DCD4 /* GameConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfigViewController.swift; sourceTree = "<group>"; };
+		9742DF0B276F51CB0076DCD4 /* ObservableOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableOptions.swift; sourceTree = "<group>"; };
+		9742DF0D276F51FF0076DCD4 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		97FE736F276A3BA300EB10C5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		97FE7371276A3CCE00EB10C5 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		97FE7373276A877500EB10C5 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 		9742DF01276D3E020076DCD4 /* Observer */ = {
 			isa = PBXGroup;
 			children = (
+				9742DF0B276F51CB0076DCD4 /* ObservableOptions.swift */,
+				9742DF0D276F51FF0076DCD4 /* Observable.swift */,
 			);
 			path = Observer;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 				9742DF08276D541F0076DCD4 /* GameMode.swift in Sources */,
 				9742DF0A276E91110076DCD4 /* GameConfigViewController.swift in Sources */,
 				973972F527687F17004D32BA /* ResultViewController.swift in Sources */,
+				9742DF0C276F51CB0076DCD4 /* ObservableOptions.swift in Sources */,
 				973972F327687E11004D32BA /* GameViewController.swift in Sources */,
 				9742DF04276D3FA50076DCD4 /* QuestionDataProvider.swift in Sources */,
 				97FE7372276A3CCE00EB10C5 /* GameSession.swift in Sources */,
@@ -269,6 +276,7 @@
 				97FE7375276A877500EB10C5 /* ResultCell.swift in Sources */,
 				973972F82768E038004D32BA /* Question.swift in Sources */,
 				973972DD27687798004D32BA /* AppDelegate.swift in Sources */,
+				9742DF0E276F51FF0076DCD4 /* Observable.swift in Sources */,
 				9742DF06276D41970076DCD4 /* DisplayQuestionStrategy.swift in Sources */,
 				97FE7378276A959800EB10C5 /* GameResultStorage.swift in Sources */,
 				973972DF27687798004D32BA /* SceneDelegate.swift in Sources */,

@@ -17,7 +17,7 @@ class ResultViewController: UIViewController {
         resultTableView.dataSource = self
 
         registerNib()
-        resultData = Game.shared.getAllGameResults()
+        resultData = Game.shared.getAllGameResults().reversed()
         resultTableView.reloadData()
     }
 
