@@ -72,12 +72,20 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Кто хочет стать миллионером" id="a5i-2D-fDK">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="gear" catalog="system" id="G1Z-Am-S7V">
-                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <segue destination="VWq-yN-ZT9" kind="show" identifier="ConfigSegue" id="reL-aV-9ZO"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="vBS-sU-cuh">
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <segue destination="dBm-uu-c6Q" kind="show" identifier="AddNewQuestionSegue" id="i0A-Sp-3uu"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" image="gear" catalog="system" id="G1Z-Am-S7V">
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <segue destination="VWq-yN-ZT9" kind="show" identifier="ConfigSegue" id="reL-aV-9ZO"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                                 <navigationBarAppearance key="standardAppearance">
@@ -154,7 +162,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2na-WO-iw9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="-878"/>
+            <point key="canvasLocation" x="1128" y="-670"/>
+        </scene>
+        <!--Add New Question View Controller-->
+        <scene sceneID="QNG-Ea-Nxa">
+            <objects>
+                <viewController id="dBm-uu-c6Q" customClass="AddNewQuestionViewController" customModule="MillionaireGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wTm-nd-YeG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить вопрос" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOo-cj-qvg">
+                                <rect key="frame" x="0.0" y="70" width="414" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nen-ef-4GC">
+                                <rect key="frame" x="20" y="148" width="374" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Bsf-lq-i89"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OQG-uj-kSL">
+                                <rect key="frame" x="20" y="326" width="374" height="432"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AddNewQuestionCell" id="sZD-PH-D2i">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sZD-PH-D2i" id="NnQ-ns-PgP">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Geb-xk-LJ7">
+                                <rect key="frame" x="245" y="286" width="149" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" title="Добавить ответ"/>
+                                <connections>
+                                    <action selector="tapAddAnswer:" destination="dBm-uu-c6Q" eventType="touchUpInside" id="qUp-qi-9vP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghi-Eh-4MH">
+                                <rect key="frame" x="158.5" y="777" width="97" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Сохранить">
+                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapSaveAnswer:" destination="dBm-uu-c6Q" eventType="touchUpInside" id="m2j-pH-lPe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qWi-Ap-ld3"/>
+                        <color key="backgroundColor" name="200852"/>
+                        <constraints>
+                            <constraint firstItem="qWi-Ap-ld3" firstAttribute="trailing" secondItem="OQG-uj-kSL" secondAttribute="trailing" constant="20" id="3Nx-sY-KHg"/>
+                            <constraint firstItem="OQG-uj-kSL" firstAttribute="leading" secondItem="qWi-Ap-ld3" secondAttribute="leading" constant="20" id="7iq-4N-IIO"/>
+                            <constraint firstItem="OQG-uj-kSL" firstAttribute="top" secondItem="nen-ef-4GC" secondAttribute="bottom" constant="50" id="AJR-VD-ie8"/>
+                            <constraint firstItem="qWi-Ap-ld3" firstAttribute="trailing" secondItem="Geb-xk-LJ7" secondAttribute="trailing" constant="20" id="HZH-cd-Exp"/>
+                            <constraint firstItem="AOo-cj-qvg" firstAttribute="trailing" secondItem="qWi-Ap-ld3" secondAttribute="trailing" id="K8R-Uq-Zu3"/>
+                            <constraint firstItem="qWi-Ap-ld3" firstAttribute="bottom" secondItem="OQG-uj-kSL" secondAttribute="bottom" constant="50" id="QTQ-lM-0Wy"/>
+                            <constraint firstItem="AOo-cj-qvg" firstAttribute="leading" secondItem="qWi-Ap-ld3" secondAttribute="leading" id="bL4-0n-4Xa"/>
+                            <constraint firstItem="nen-ef-4GC" firstAttribute="leading" secondItem="qWi-Ap-ld3" secondAttribute="leading" constant="20" id="dxI-zI-nw3"/>
+                            <constraint firstItem="Ghi-Eh-4MH" firstAttribute="top" secondItem="OQG-uj-kSL" secondAttribute="bottom" constant="19" id="eaV-ZY-X31"/>
+                            <constraint firstItem="Ghi-Eh-4MH" firstAttribute="centerX" secondItem="OQG-uj-kSL" secondAttribute="centerX" id="gbn-A1-b6P"/>
+                            <constraint firstItem="AOo-cj-qvg" firstAttribute="top" secondItem="qWi-Ap-ld3" secondAttribute="top" constant="70" id="ob0-DX-Awj"/>
+                            <constraint firstItem="Geb-xk-LJ7" firstAttribute="top" secondItem="nen-ef-4GC" secondAttribute="bottom" constant="10" id="qOf-mB-BQh"/>
+                            <constraint firstItem="nen-ef-4GC" firstAttribute="top" secondItem="AOo-cj-qvg" secondAttribute="bottom" constant="51.5" id="s4C-pQ-Sz4"/>
+                            <constraint firstItem="qWi-Ap-ld3" firstAttribute="trailing" secondItem="nen-ef-4GC" secondAttribute="trailing" constant="20" id="vEl-kg-eIY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1Y8-ag-3g7"/>
+                    <connections>
+                        <outlet property="addNewAnswerButton" destination="Geb-xk-LJ7" id="EJn-PA-m2l"/>
+                        <outlet property="answersTable" destination="OQG-uj-kSL" id="mMT-E9-X7e"/>
+                        <outlet property="questionTextView" destination="nen-ef-4GC" id="8Em-rN-xvm"/>
+                        <outlet property="saveButton" destination="Ghi-Eh-4MH" id="w35-u9-Lw5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yeK-vh-0H6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1996" y="-670"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="APU-Yp-tXV">
@@ -225,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dnN-Z0-r3D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1069.5652173913045" y="-192.1875"/>
+            <point key="canvasLocation" x="1128" y="116"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="WwA-nU-YNx">
@@ -270,20 +366,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dvi-1d-Xv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="492"/>
+            <point key="canvasLocation" x="1996" y="116"/>
         </scene>
     </scenes>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="millionaire-bg" width="577" height="578"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="200852">
             <color red="0.125" green="0.030999999493360519" blue="0.32199999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

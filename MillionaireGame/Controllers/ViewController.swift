@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet var resultGameButton: UIButton!
 
     private let gameResultStorage = GameResultStorage()
+    private let questionDataProvider = QuestionDataProvider()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +35,11 @@ class ViewController: UIViewController {
             let gameSession = GameSession()
             Game.shared.gameSession = gameSession
             vc.gameDelegate = gameSession
+            vc.questionDataProvider = questionDataProvider
 
-            //        case "ResultGameSegue":
-            //            guard let vc = segue.destination as? ResultViewController else { return }
-
+        case "AddNewQuestionSegue":
+            guard let vc = segue.destination as? AddNewQuestionViewController else { return }
+            vc.questionDataProvider = questionDataProvider
         default:
             return
         }

@@ -6,6 +6,7 @@
 //
 
 final class QuestionDataProvider {
+    private var questionStorage = QuestionStorage()
     private var questionList = [
         Question(title: "В каком из этих фильмов не снимался Александр Абдулов?", answers: [
             Answer(title: "Карнавал", score: 0),
@@ -31,9 +32,22 @@ final class QuestionDataProvider {
             Answer(title: "Маркиз", score: 0),
             Answer(title: "Идальго", score: 1_000_000),
         ]),
-    ]
+    ] {
+        didSet {
+            questionStorage.save(records: questionList)
+        }
+    }
+
+    func setQuestion(newQuestion: Question) {
+        questionList.append(newQuestion)
+    }
 
     func getAllQuestion() -> [Question] {
+        let questionListFromStorage = questionStorage.retrieveRecords()
+        if questionListFromStorage.count > 0 {
+            return questionListFromStorage
+        }
+
         return questionList
     }
 

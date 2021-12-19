@@ -9,13 +9,13 @@ import UIKit
 
 class GameViewController: UIViewController {
     var gameDelegate: GameSessionProtocol?
+    var questionDataProvider = QuestionDataProvider()
 
     @IBOutlet var gameHintLabel: UILabel!
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerTableView: UITableView!
 
     private let gameResultStorage = GameResultStorage()
-    private let questionDataProvider = QuestionDataProvider()
     private var currentQuestion: Question?
 
     private lazy var createQuestionStrategy: DisplayQuestionStrategy = {
@@ -37,7 +37,7 @@ class GameViewController: UIViewController {
         gameDelegate?.cnAllQuestion = questionDataProvider.getCount()
         Game.shared.gameSession?.cnRightAnswer.addObserver(self, options: [.new, .initial])
             { [weak self] rightAnswer, _ in
-                self?.gameHintLabel.text = "Вопрос № \(rightAnswer + 1);  \(Game.shared.getPct())% правльных ответов"
+                self?.gameHintLabel.text = "Вопрос № \(rightAnswer + 1);  \(String(format: "%.1f", Game.shared.getPct()))% правльных ответов"
             }
         displayNewQuestion()
     }
