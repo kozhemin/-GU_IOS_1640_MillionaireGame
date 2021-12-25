@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MillionaireGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="millionaire-bg" translatesAutoresizingMaskIntoConstraints="NO" id="sfv-I9-Lo5">
+                                <rect key="frame" x="82" y="94" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Vde-fk-2Zv"/>
+                                    <constraint firstAttribute="width" constant="250" id="yL2-Yj-H5J"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ief-tX-FKj">
+                                <rect key="frame" x="147" y="427" width="120" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="W6o-H4-jNZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Играть"/>
+                                <connections>
+                                    <segue destination="JAr-d5-3Uk" kind="presentation" identifier="StartGameSegue" modalPresentationStyle="fullScreen" id="icT-s4-hEn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APU-pE-Vfw">
+                                <rect key="frame" x="142.5" y="516" width="129" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Результаты"/>
+                                <connections>
+                                    <segue destination="P0o-0g-4PR" kind="presentation" identifier="ResultGameSegue" modalPresentationStyle="automatic" id="Rrq-4C-Ywy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="200852"/>
+                        <constraints>
+                            <constraint firstItem="APU-pE-Vfw" firstAttribute="centerX" secondItem="Ief-tX-FKj" secondAttribute="centerX" id="0fb-0V-LbK"/>
+                            <constraint firstItem="sfv-I9-Lo5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MZY-dn-Q7D"/>
+                            <constraint firstItem="APU-pE-Vfw" firstAttribute="top" secondItem="Ief-tX-FKj" secondAttribute="bottom" constant="41" id="MiT-a1-Tdq"/>
+                            <constraint firstItem="Ief-tX-FKj" firstAttribute="centerX" secondItem="sfv-I9-Lo5" secondAttribute="centerX" id="a1S-Vc-ygT"/>
+                            <constraint firstItem="Ief-tX-FKj" firstAttribute="top" secondItem="sfv-I9-Lo5" secondAttribute="bottom" constant="83" id="ufs-A3-vKZ"/>
+                            <constraint firstItem="sfv-I9-Lo5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="y6N-mY-Wfi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resultGameButton" destination="APU-pE-Vfw" id="5Qw-mf-uiW"/>
+                        <outlet property="startGameButton" destination="Ief-tX-FKj" id="ned-5x-VFB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="105.80357142857143"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="APU-Yp-tXV">
+            <objects>
+                <viewController id="JAr-d5-3Uk" customClass="GameViewController" customModule="MillionaireGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NSr-lq-Qoz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z9h-Tr-EUD">
+                                <rect key="frame" x="8" y="244" width="398" height="618"/>
+                                <color key="backgroundColor" name="200852"/>
+                                <color key="separatorColor" systemColor="systemOrangeColor"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" name="200852"/>
+                                <color key="sectionIndexTrackingBackgroundColor" name="200852"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AnswerCell" id="hzn-X4-JLN">
+                                        <rect key="frame" x="0.0" y="44.5" width="398" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hzn-X4-JLN" id="6LW-42-JlO">
+                                            <rect key="frame" x="0.0" y="0.0" width="398" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" name="200852"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="200852"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4u-1m-xZg">
+                                <rect key="frame" x="8" y="64" width="398" height="150"/>
+                                <color key="backgroundColor" name="200852"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="aeI-b1-aoc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nNP-bd-L5L"/>
+                        <color key="backgroundColor" name="200852"/>
+                        <constraints>
+                            <constraint firstItem="nNP-bd-L5L" firstAttribute="trailing" secondItem="K4u-1m-xZg" secondAttribute="trailing" constant="8" id="5Vp-X9-E19"/>
+                            <constraint firstItem="nNP-bd-L5L" firstAttribute="bottom" secondItem="z9h-Tr-EUD" secondAttribute="bottom" id="A7U-Ar-JaK"/>
+                            <constraint firstItem="z9h-Tr-EUD" firstAttribute="top" secondItem="nNP-bd-L5L" secondAttribute="top" constant="200" id="CY5-Cz-h2B"/>
+                            <constraint firstItem="nNP-bd-L5L" firstAttribute="trailing" secondItem="z9h-Tr-EUD" secondAttribute="trailing" constant="8" id="jKZ-Kb-4Z3"/>
+                            <constraint firstItem="K4u-1m-xZg" firstAttribute="top" secondItem="nNP-bd-L5L" secondAttribute="top" constant="20" id="mRn-FQ-fFy"/>
+                            <constraint firstItem="K4u-1m-xZg" firstAttribute="leading" secondItem="nNP-bd-L5L" secondAttribute="leading" constant="8" id="oEA-I3-wPH"/>
+                            <constraint firstItem="z9h-Tr-EUD" firstAttribute="leading" secondItem="nNP-bd-L5L" secondAttribute="leading" constant="8" id="zlN-YZ-oux"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="W1d-rR-jhf"/>
+                    <connections>
+                        <outlet property="answerTableView" destination="z9h-Tr-EUD" id="mGR-Zk-kq0"/>
+                        <outlet property="questionLabel" destination="K4u-1m-xZg" id="mtX-FV-UNy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dnN-Z0-r3D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1069.5652173913045" y="-192.1875"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="WwA-nU-YNx">
+            <objects>
+                <viewController id="P0o-0g-4PR" customClass="ResultViewController" customModule="MillionaireGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SY1-Oj-xQo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NT2-TK-hiq">
+                                <rect key="frame" x="0.0" y="10" width="414" height="798"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResultCell" id="JdV-TR-0UG">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JdV-TR-0UG" id="eUt-jm-5Bk">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="P0o-0g-4PR" id="D9J-05-Ppo"/>
+                                    <outlet property="delegate" destination="P0o-0g-4PR" id="D89-70-mLV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AfX-a2-lVE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NT2-TK-hiq" firstAttribute="top" secondItem="AfX-a2-lVE" secondAttribute="top" constant="10" id="8Rk-Lk-6Hh"/>
+                            <constraint firstItem="AfX-a2-lVE" firstAttribute="bottom" secondItem="NT2-TK-hiq" secondAttribute="bottom" id="O97-0W-ULc"/>
+                            <constraint firstItem="AfX-a2-lVE" firstAttribute="trailing" secondItem="NT2-TK-hiq" secondAttribute="trailing" id="SSG-Oj-Fgb"/>
+                            <constraint firstItem="NT2-TK-hiq" firstAttribute="leading" secondItem="AfX-a2-lVE" secondAttribute="leading" id="uAa-gW-PfR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wgc-FD-KDr"/>
+                    <connections>
+                        <outlet property="resultTableView" destination="NT2-TK-hiq" id="cDd-ZG-ZFU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dvi-1d-Xv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1070" y="492"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="millionaire-bg" width="577" height="578"/>
+        <namedColor name="200852">
+            <color red="0.125" green="0.030999999493360519" blue="0.32199999690055847" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
