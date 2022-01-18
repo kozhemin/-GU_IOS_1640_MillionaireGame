@@ -9,55 +9,55 @@ import UIKit
 
 class GameViewController: UIViewController {
     var gameDelegate: GameSessionProtocol?
+    var questionDataProvider = QuestionDataProvider()
+
+    @IBOutlet var gameHintLabel: UILabel!
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerTableView: UITableView!
 
-    private var currentQuestionIndex = 0
     private let gameResultStorage = GameResultStorage()
+    private var currentQuestion: Question?
 
-    private var currentQuestion: Question? {
-        didSet {
-            displayQuestion()
+    private lazy var createQuestionStrategy: DisplayQuestionStrategy = {
+        let allQuestion = questionDataProvider.getAllQuestion()
+
+        switch Game.shared.gameMode {
+        case .sequential:
+            return SequentialDisplayQuestionStrategy(q: allQuestion)
+        case .random:
+            return RandomDisplayQuestionStrategy(q: allQuestion)
         }
-    }
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         answerTableView.dataSource = self
         answerTableView.delegate = self
 
-        loadNewQuestion(isIntGame: true)
-
-        gameDelegate?.cnAllQuestion = questionList.count
+        gameDelegate?.cnAllQuestion = questionDataProvider.getCount()
+        Game.shared.gameSession?.cnRightAnswer.addObserver(self, options: [.new, .initial])
+            { [weak self] rightAnswer, _ in
+                self?.gameHintLabel.text = "Вопрос № \(rightAnswer + 1);  \(String(format: "%.1f", Game.shared.getPct()))% правльных ответов"
+            }
+        displayNewQuestion()
     }
 
-    // MARK: Загрузка нового вопроса
+    // MARK: Отображение нового вопроса в зависимости от текущей стратегии
 
-    private func loadNewQuestion(isIntGame: Bool = false) {
-        if !isIntGame {
-            currentQuestionIndex += 1
-        }
+    private func displayNewQuestion() {
+        guard let currentQuestion = questionDataProvider.getQuestion(strategy: createQuestionStrategy)
+        else { return endOfGame() }
 
-        if !(currentQuestionIndex >= questionList.startIndex && currentQuestionIndex < questionList.endIndex) {
-            endOfGame()
-            return
-        }
-
-        currentQuestion = questionList[currentQuestionIndex]
-    }
-
-    private func displayQuestion() {
-        questionLabel.text = currentQuestion?.title
+        self.currentQuestion = currentQuestion
+        questionLabel.text = currentQuestion.title
         answerTableView.reloadData()
     }
 
     private func checkAnswer(answer: Answer) {
         if answer.isRight {
-            // next question
             gameDelegate?.appendRightAnswer(score: answer.score)
-            loadNewQuestion()
+            displayNewQuestion()
         } else {
-            // game over
             endOfGame()
         }
     }

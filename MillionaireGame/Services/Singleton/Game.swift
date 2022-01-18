@@ -9,6 +9,7 @@ import Foundation
 
 class Game {
     static var shared = Game()
+    var gameMode = GameMode.sequential
     var gameSession: GameSession?
     private var gameResults = [GameResult]()
 
@@ -16,16 +17,19 @@ class Game {
 
     func gameOver() {
         guard let gameSession = gameSession else { return }
-        let pct = (Double(gameSession.getCnRightAnswer()) / Double(gameSession.cnAllQuestion)) * 100
-
         gameResults.append(
             GameResult(allQuestion: gameSession.cnAllQuestion,
                        righAnswer: gameSession.getCnRightAnswer(),
                        allScore: gameSession.getPrizeFund(),
                        isWinner: gameSession.isWinner,
-                       rightPct: Double(pct)))
+                       rightPct: getPct()))
 
         self.gameSession = nil
+    }
+
+    func getPct() -> Double {
+        guard let gameSession = gameSession else { return 0.0 }
+        return (Double(gameSession.getCnRightAnswer()) / Double(gameSession.cnAllQuestion)) * 100
     }
 
     func getAllGameResults() -> [GameResult] {
